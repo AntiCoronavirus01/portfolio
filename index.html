@@ -412,11 +412,14 @@
                 // Update language switcher button text
                 langSwitcher.textContent = lang === 'en' ? 'TR' : 'EN';
 
-                // Update PDF download link and filename
-                // Ensure you have CV files named cv_en.pdf and cv_tr.pdf in the same directory
-                const yourNameForFile = translations[lang].name.replace(/\s+/g, '-'); // Replace spaces with hyphens for filename
-                pdfDownloadBtn.href = `cv_${lang}.pdf`;
-                pdfDownloadBtn.setAttribute('download', `/portfolio/CV-${yourNameForFile}-${lang.toUpperCase()}.pdf`);
+                // Part of the code
+
+                // Use an absolute path (starts with /) to be safe.
+                const pdfPath = `/portfolio/cv_${lang.toLowerCase()}.pdf`; 
+
+                const yourNameForFile = translations[lang].name.replace(/\s+/g, '-');
+                pdfDownloadBtn.href = pdfPath; // Use the correct path
+                pdfDownloadBtn.setAttribute('download', `CV-${yourNameForFile}-${lang.toUpperCase()}.pdf`);
             };
 
             // Event listener for the language switcher button
