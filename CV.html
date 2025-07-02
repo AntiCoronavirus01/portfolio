@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarp Atasever - CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* A4 Page Setup and General Styling */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            font-size: 11pt;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* The main CV container that mimics an A4 sheet */
+        .cv-container {
+            width: 21cm;
+            min-height: 29.7cm;
+            margin: 30px auto;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 2cm;
+            box-sizing: border-box;
+        }
+
+        /* --- HEADER & CONTACT --- */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px 25px;
+            font-size: 10pt;
+            color: #555;
+        }
+        
+        .contact-info a {
+            color: #005f73; /* A modern, professional color */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #00343f;
+        }
+
+        /* --- SECTIONS --- */
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #005f73;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #005f73;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .section p {
+            margin: 0 0 10px 0;
+        }
+
+        /* --- EXPERIENCE & EDUCATION --- */
+        .entry {
+            margin-bottom: 20px;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .entry-title {
+            font-size: 12pt;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+        
+        .entry-company {
+            font-weight: 500;
+        }
+
+        .entry-date {
+            font-size: 10pt;
+            font-style: italic;
+            color: #666;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .entry-details {
+            margin: 0;
+            padding-left: 18px;
+            list-style-type: disc;
+            color: #444;
+        }
+        
+        .entry-details li {
+            margin-bottom: 5px;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category h3 {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .skill-category ul {
+            margin: 0;
+            padding-left: 18px;
+            list-style-position: outside;
+        }
+        
+        .skill-category li {
+            margin-bottom: 5px;
+        }
+        
+        .skill-category li span {
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: #fff;
+                font-size: 10pt; /* Slightly smaller for better print fit */
+            }
+            .cv-container {
+                margin: 0;
+                padding: 1.5cm;
+                box-shadow: none;
+                border: none;
+            }
+            .contact-info a {
+                color: #333;
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="cv-container">
+
+        <header class="header">
+            <h1>SARP ATASEVER</h1>
+            <div class="contact-info">
+                <span>+90 551 942 19 43</span>
+                <span>•</span>
+                <a href="mailto:ataseversarp01@gmail.com">ataseversarp01@gmail.com</a>
+                <span>•</span>
+                <span>Antalya, Turkey</span>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Profile</h2>
+            <p>
+                A highly motivated and adaptable recent high school graduate with a strong aptitude for analytical thinking and problem-solving, developed through a Math-Science curriculum and self-study in programming. Fluent in Turkish and English with an intermediate command of Japanese, demonstrating excellent communication skills and cultural awareness. Eager to apply a strong work ethic, technical skills, and a capacity for rapid learning to an entry-level role in a dynamic environment.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Turkish <span>(Native)</span></li>
+                        <li>English <span>(Advanced)</span></li>
+                        <li>Japanese <span>(Intermediate)</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Professional Abilities</h3>
+                    <ul>
+                        <li>Analytical & Critical Thinking</li>
+                        <li>Community Engagement</li>
+                        <li>Problem-Solving</li>
+                        <li>Fast Learner & Adaptable</li>
+                        <li>Attention to Detail</li>
+                    </ul>
+                </div>
+                 <div class="skill-category">
+                    <h3>Technical Foundation</h3>
+                    <ul>
+                        <li>Web Development <span>(HTML, CSS, JS)</span></li>
+                        <li>Backend <span>(C#/.NET, Node.js)</span></li>
+                        <li>Version Control <span>(Git & GitHub)</span></li>
+                        <li>Microsoft Office Suite</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">Programmer • <span class="entry-company">Artado Search Engine</span></div>
+                    <div class="entry-date">2023 – 2024</div>
+                </div>
+                <ul class="entry-details">
+                    <li>Contributed to the development and maintenance of a web crawling engine, assisting with backend logic and data handling.</li>
+                    <li>Managed and engaged with the user community across digital channels, including Discord, to provide support and gather valuable feedback.</li>
+                    <li>Collaborated with the team to identify, troubleshoot, and resolve technical issues, improving platform performance and stability.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-title">High School Graduate, Math-Science Track</div>
+                    <div class="entry-date">Graduated 2025</div>
+                </div>
+                <p style="margin:0; font-weight:500; color:#555;">Kemer Anatolian High School, Kemer, Antalya</p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+  </html>
