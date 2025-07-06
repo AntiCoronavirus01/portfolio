@@ -36,7 +36,22 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
             padding: 2cm;
             box-sizing: border-box;
+            position: relative; /* <-- ADDED: To be a positioning context for the image */
         }
+
+        /* --- NEW: Profile Picture Style --- */
+        .profile-picture {
+            position: absolute;
+            top: 2cm; /* Align with top padding */
+            right: 2cm; /* Align with right padding */
+            width: 110px;
+            height: 110px;
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Prevents image distortion */
+            border: 4px solid #f0f0f0;
+            background-color: #f0f0f0; /* BG for placeholder */
+        }
+
 
         /* --- HEADER & CONTACT --- */
         .header {
@@ -44,6 +59,8 @@
             border-bottom: 2px solid #f0f0f0;
             padding-bottom: 20px;
             margin-bottom: 25px;
+            /* Added padding-right to avoid text overlapping with the image on very small screens, though not essential for A4 */
+            padding-right: 130px; 
         }
 
         .header h1 {
@@ -176,6 +193,14 @@
                 box-shadow: none;
                 border: none;
             }
+            .profile-picture {
+                top: 1.5cm;
+                right: 1.5cm;
+                border-color: #eee;
+            }
+            .header {
+                padding-right: 0;
+            }
             .contact-info a {
                 color: #333;
                 text-decoration: none;
@@ -186,6 +211,9 @@
 <body>
 
     <main class="cv-container">
+
+        <!-- ADDED a profile picture. Replace the 'src' with the URL to your photo. -->
+        <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-picture">
 
         <header class="header">
             <h1>SARP ATASEVER</h1>
@@ -267,4 +295,4 @@
     </main>
 
 </body>
-  </html>
+                </html>
