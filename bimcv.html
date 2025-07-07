@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarp Atasever - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- Genel Sayfa Ayarları --- */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e8e8e8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 21cm; /* A4 Genişliği */
+            min-height: 29.7cm; /* A4 Yüksekliği */
+            margin: 20px 0;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .page {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- Sol Sütun (Sidebar) --- */
+        .sidebar {
+            width: 35%;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #3498db;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .sidebar h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .contact-info strong {
+            color: #bdc3c7;
+        }
+
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .skills li {
+            background-color: #34495e;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        /* --- Ana İçerik Alanı --- */
+        .main-content {
+            width: 65%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            border-bottom: 4px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .header h2 {
+            font-size: 1.2em;
+            margin: 5px 0 0 0;
+            color: #3498db;
+            font-weight: 400;
+        }
+
+        .main-content section h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #3498db;
+            font-size: 1.5em;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .main-content p, .main-content li {
+            line-height: 1.8;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .education-item h4, .experience-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0 0 5px 0;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .education-item .date, .experience-item .date {
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* --- İkinci Sayfa --- */
+        .page-2 {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .logo-back {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4em;
+            font-weight: 700;
+            color: #bdc3c7;
+            border: 5px solid #bdc3c7;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        
+        .name-back {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        /* --- Yazdırma Ayarları --- */
+        @media print {
+            body {
+                background-color: #fff;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always; /* Her container'dan sonra yeni sayfa */
+            }
+            .container:last-of-type {
+                page-break-after: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ##### BİRİNCİ SAYFA BAŞLANGICI ##### -->
+    <div class="container">
+        <div class="page">
+            <div class="sidebar">
+                <!-- FOTOĞRAFINIZI BURAYA EKLEYİN. Bilgisayarınızdaki bir fotoğrafı göstermek için "src" kısmını dosya yoluyla değiştirin veya online bir link kullanın. -->
+                <img src="/portfolio/img.jpg" alt="Sarp Atasever Profil Fotoğrafı" class="profile-pic">
+                
+                <div class="contact-info" style="width: 100%;">
+                    <h3>İletişim</h3>
+                    <!-- BİLGİLERİNİZİ BURAYA GİRİN -->
+                    <p><strong>Telefon:</strong><br>+90 5XX XXX XX XX</p>
+                    <p><strong>E-posta:</strong><br>sarp.atasever@email.com</p>
+                    <p><strong>Adres:</strong><br>Kemer, Antalya</p>
+                    <p><strong>LinkedIn:</strong><br>linkedin.com/in/sarp-atasever</p>
+                </div>
+
+                <div class="skills" style="width: 100%;">
+                    <h3>Yetenekler</h3>
+                    <ul>
+                        <li>Microsoft Office (Word, Excel)</li>
+                        <li>Temel Bilgisayar Becerileri</li>
+                        <li>Hızlı Öğrenme ve Adapte Olma</li>
+                        <li>Takım Çalışması</li>
+                        <li>Problem Çözme</li>
+                        <li>Güçlü İletişim</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="header">
+                    <h1>Sarp Atasever</h1>
+                    <h2>Lise Mezunu / Kariyer Başlangıcı</h2>
+                </div>
+
+                <section id="hakkimda">
+                    <h3>Hakkımda</h3>
+                    <p>
+                        Kemer Anadolu Lisesi'nden mezun, 19 yaşından gün almış, enerjik ve öğrenmeye son derece hevesli bir bireyim. Disiplinli ve sorumluluk sahibi bir yaklaşımla, kendimi geliştirebileceğim ve kuruma değer katabileceğim bir başlangıç pozisyonu arıyorum. Teknik becerilerimi ve pratik bilgimi artırmak için büyük bir motivasyona sahibim. Takım ortamında uyumla çalışarak ve verilen görevleri en iyi şekilde yerine getirerek kariyerime sağlam bir adım atmayı hedefliyorum.
+                    </p>
+                </section>
+
+                <section id="egitim">
+                    <h3>Eğitim</h3>
+                    <div class="education-item">
+                        <h4>Kemer Anadolu Lisesi</h4>
+                        <p><strong>Alan:</strong> Sayısal</p>
+                        <p class="date">Mezuniyet: Haziran 2025</p>
+                    </div>
+                </section>
+
+                <section id="deneyim">
+                    <h3>İş Deneyimi</h3>
+                    <div class="experience-item">
+                        <h4>Henüz Profesyonel İş Deneyimi Yok</h4>
+                        <p>
+                            Yaz dönemlerinde Fırın, Tekne turları gibi işlerde çalıştım
+                        </p>
+                    </div>
+                </section>
+
+                <section id="kisisel-bilgiler">
+                    <h3>Kişisel Bilgiler</h3>
+                    <ul>
+                        <li><strong>Doğum Tarihi:</strong> 2007 (19 Yaşından gün aldı)</li>
+                        <li><strong>Askerlik Durumu:</strong> Tecilli (Eğitim ve yaş nedeniyle)</li>
+                            </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- ##### BİRİNCİ SAYFA BİTİŞİ ##### -->
+
+    <!-- ##### İKİNCİ SAYFA BAŞLANGICI ##### -->
+    <div class="container">
+        <div class="page page-2">
+            <div class="logo-back">SA</div>
+            <div class="name-back">Sarp Atasever</div>
+        </div>
+    </div>
+    <!-- ##### İKİNCİ SAYFA BİTİŞİ ##### -->
+
+</body>
+</html>
