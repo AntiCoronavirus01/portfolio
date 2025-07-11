@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarp Atasever | CV</title>
-    <!-- Favicon - You can generate your own at favicon.io -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
-
-    <!-- Google Fonts & Font Awesome Icons -->
+    <!-- EDITABLE: Change the title of your portfolio -->
+    <title>Sarp Atasever - Portfolio</title>
+    
+    <!-- Google Fonts: Fira Code for a techy feel, and Inter for readability -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Reset & Basic Setup */
+        /* ------------------- */
+        /* --- CSS Reset & Variables --- */
+        /* ------------------- */
         :root {
-            --primary-color: #00aaff;
-            --background-color: #121212;
+            --bg-color: #121212;
             --surface-color: #1e1e1e;
-            --text-color: #e0e0e0;
-            --text-secondary-color: #a0a0a0;
+            --primary-text-color: #E0E0E0;
+            --secondary-text-color: #A0A0A0;
+            --accent-color: #00bcd4; /* A techy cyan */
+            --border-color: #333333;
         }
 
         * {
@@ -34,414 +35,728 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text-color);
             line-height: 1.6;
         }
 
-        /* Container & Layout */
+        /* ------------------- */
+        /* --- General Layout & Typography --- */
+        /* ------------------- */
         .container {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        /* Header & Navigation */
-        .header {
-            padding: 40px 20px;
-            text-align: center;
-            position: relative;
+        h1, h2, h3 {
+            font-family: 'Fira Code', monospace;
+            color: var(--primary-text-color);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2rem; border-bottom: 2px solid var(--accent-color); display: inline-block; padding-bottom: 0.5rem; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; color: var(--accent-color); }
+        
+        p {
+            color: var(--secondary-text-color);
+            margin-bottom: 1rem;
+            max-width: 70ch;
         }
 
-        .header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .header h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--primary-color);
-        }
-
-        .action-buttons {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .action-btn {
-            background-color: var(--surface-color);
-            color: var(--text-color);
-            border: 1px solid var(--primary-color);
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
+        a {
+            color: var(--accent-color);
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .action-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-        }
-
-        .social-links {
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: var(--text-secondary-color);
-            font-size: 1.8rem;
-            margin: 0 15px;
             transition: color 0.3s ease;
         }
 
-        .social-links a:hover {
-            color: var(--primary-color);
+        a:hover {
+            color: white;
         }
 
-        /* Main Content Sections */
         section {
-            padding: 60px 0;
-            border-bottom: 1px solid var(--surface-color);
+            padding: 80px 0;
         }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        h3.section-title {
+        
+        .section-center {
             text-align: center;
-            font-size: 2rem;
+        }
+
+        /* ------------------- */
+        /* --- Header & Navigation --- */
+        /* ------------------- */
+        .main-header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fira Code', monospace;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-text-color);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-nav a {
             font-weight: 600;
-            margin-bottom: 40px;
-            color: #fff;
-            position: relative;
+            font-size: 1rem;
         }
 
-        h3.section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 8px auto 0;
-        }
-
-        .card {
-            background-color: var(--surface-color);
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,170,255,0.15);
-        }
-
-        /* About Section */
-        #about p {
-            font-size: 1.1rem;
+        /* ------------------- */
+        /* --- Hero Section (USP) --- */
+        /* ------------------- */
+        .hero {
+            padding-top: 180px; /* Account for fixed header */
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text-secondary-color);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            display: flex; /* Aligns "I'm a" with the typewriter text */
+            justify-content: center;
+            flex-wrap: wrap; /* Allows text to wrap on smaller screens */
+            gap: 0.5rem;
         }
 
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        .hero .subtitle {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Typewriter Styles */
+        #typewriter {
+            color: var(--accent-color);
+        }
+        .typewriter-cursor {
+            display: inline-block;
+            background-color: var(--primary-text-color);
+            width: 3px;
+            animation: blink 1s infinite;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            0%  { background-color: var(--primary-text-color); }
+            49% { background-color: var(--primary-text-color); }
+            50% { background-color: transparent; }
+            99% { background-color: transparent; }
+            100% { background-color: var(--primary-text-color); }
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
             gap: 20px;
         }
 
-        .skill-category h4 {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--surface-color);
-            padding-bottom: 10px;
+        .social-links a {
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 12px 24px;
+            background-color: var(--accent-color);
+            color: #121212;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* ------------------- */
+        /* --- Projects Section --- */
+        /* ------------------- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #333; /* Placeholder color */
+        }
+
+        .project-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-info p {
+            flex-grow: 1; /* Pushes tags and button to the bottom */
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 15px;
         }
 
-        .skill-category ul {
-            list-style: none;
+        .tag {
+            background-color: #333;
+            color: var(--secondary-text-color);
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
         }
 
-        .skill-category li {
-            margin-bottom: 10px;
-            color: var(--text-secondary-color);
+        .project-links {
+             margin-top: auto; /* Pushes links to the bottom */
+             padding-top: 10px;
         }
-        .skill-category li i {
-            margin-right: 10px;
-            color: var(--primary-color);
-        }
-
-        /* Experience & Projects */
-        .item h4 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-        }
-        .item-sub {
-            font-style: italic;
-            color: var(--text-secondary-color);
-            margin-bottom: 10px;
-        }
-        .item p {
-            color: var(--text-secondary-color);
-        }
-        .project-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: var(--primary-color);
-            text-decoration: none;
+        
+        .project-links a {
+            margin-right: 15px;
             font-weight: 600;
         }
-        .project-link:hover {
-            text-decoration: underline;
+        
+        .case-study-btn {
+            cursor: pointer;
         }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
+        
+        /* ------------------- */
+        /* --- Testimonials Section --- */
+        /* ------------------- */
+        #testimonials-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
             background-color: var(--surface-color);
-            margin-top: 40px;
+            padding: 30px;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+        
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: var(--primary-text-color);
+            border: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-text-color);
+        }
+        
+        .testimonial-author span {
+            display: block;
+            font-weight: 400;
+            color: var(--secondary-text-color);
         }
 
-        /* Responsive Design */
+        /* ------------------- */
+        /* --- Contact & Footer --- */
+        /* ------------------- */
+        .contact p {
+            max-width: 60ch;
+            margin: 0 auto 2rem auto;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--secondary-text-color);
+            background-color: var(--surface-color);
+            margin-top: 80px;
+        }
+        
+        /* ------------------- */
+        /* --- Modal for Case Studies --- */
+        /* ------------------- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--secondary-text-color);
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        
+        .modal-content h3 {
+            margin-bottom: 2rem;
+        }
+        
+        .modal-content .project-links {
+            margin-top: 2rem;
+        }
+
+        /* ------------------- */
+        /* --- Responsive Design --- */
+        /* ------------------- */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.2rem;
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            
+            .main-header .container {
+                flex-direction: column;
+                gap: 15px;
             }
-            .header h2 {
-                font-size: 1.2rem;
+            
+            .hero {
+                padding-top: 220px; /* More padding for stacked header */
+                min-height: 60vh;
             }
-            .action-buttons {
-                position: static;
-                justify-content: center;
-                margin-top: 20px;
-            }
-            h3.section-title {
-                font-size: 1.8rem;
-            }
+        }
+        .container{
+            position: relative;
+        }
+        #testimonials{
+            visibility: hidden;
+            position: absolute;
+        }
+        .project-card img{
+            text-align: center;
+        }
+        #im-a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
         }
     </style>
 </head>
+
 <body>
 
-    <header class="header">
-        <div class="action-buttons">
-            <!-- The href and download attribute will be updated by JavaScript -->
-            <a id="pdf-download-btn" href="" download="" class="action-btn">
-                <i class="fas fa-file-pdf"></i> <span data-translate="download_cv">Download CV</span>
-            </a>
-            <button id="lang-switcher" class="action-btn">TR</button>
-        </div>
-
-        <h1 data-translate="name">[Your Name]</h1>
-        <h2 data-translate="job_title">[Aspiring Computer Engineer & Self-Taught Developer]</h2>
-        <div class="social-links">
-            <!--<a href="[Your LinkedIn URL]" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>-->
-            <a href="https://github.com/AntiCoronavirus01" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="mailto:ataseversarp01@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo" id="nav-logo">Sarp Atasever</a>
+            <nav class="main-nav">
+                <ul id="nav-links">
+                    <!-- Nav links will be generated by JavaScript -->
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <p class="subtitle" id="hero-subtitle"></p>
+                <h1 id="im-a">
+                    <span>I'm a</span>
+                    <span id="typewriter"></span><span class="typewriter-cursor"></span>
+                </h1>
+                <p id="hero-tagline"></p>
+                <a href="#projects" class="btn">View My Work</a>
+                <div class="social-links" id="social-links-container">
+                    <!-- Social links will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
 
         <!-- About Section -->
         <section id="about">
-            <h3 class="section-title" data-translate="about_title">About Me</h3>
-            <p data-translate="about_text">
-                [I am a dedicated and ambitious high school student with a deep passion for technology and software development. Currently preparing to take the YKS exam, my goal is to pursue a degree in Computer Engineering. While studying, I have independently developed strong skills in web design, full-stack development, and various programming languages. I am a proactive learner, highly motivated, and ready to apply my practical experience to a challenging role. I am seeking opportunities where I can contribute to real-world projects and begin my professional journey.]
-            </p>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h3 class="section-title" data-translate="skills_title">Skills</h3>
-            <div class="skills-grid">
-                <div class="card skill-category">
-                    <h4 data-translate="skills_frontend">Frontend</h4>
-                    <ul>
-                        <li><i class="fab fa-html5"></i> HTML5 & CSS3</li>
-                        <li><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
-                        <li><i class="fab fa-react"></i> React.js</li>
-                        <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
-                    </ul>
-                </div>
-                <div class="card skill-category">
-                    <h4 data-translate="skills_backend">Backend</h4>
-                    <ul>
-                        <li><i class="fab fa-node-js"></i> Node.js & Express</li>
-                        <li><i class="fab fa-brands fa-golang"></i> Go Lang</li>
-                        <li><i class="fas fa-server"></i> REST API</li>
-                        <li><i class="fas fa-database"></i> SQL Databases</li>
-                    </ul>
-                </div>
-                <div class="card skill-category">
-                    <h4 data-translate="skills_other">Other Tools & Technologies</h4>
-                    <ul>
-                        <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
-                        <li><i class="fab fa-docker"></i> Docker</li>
-                        <li><i class="fas fa-c"></i> C / C++</li>
-                        <li><i class="fas fa-terminal"></i> Linux/Unix Shell</li>
-                    </ul>
+            <div class="container">
+                <h2 class="section-center">About Me</h2>
+                <div id="about-content">
+                    <!-- About me content will be generated by JavaScript -->
                 </div>
             </div>
-        </section>
+        </section> 
 
         <!-- Projects Section -->
         <section id="projects">
-            <h3 class="section-title" data-translate="projects_title">Projects</h3>
-            <div class="card item">
-                <h4 data-translate="project1_title">[Project One: E-commerce Website]</h4>
-                <p class="item-sub">HTML, CSS, JavaScript</p>
-                <p data-translate="project1_desc">[A full-featured e-commerce platform with user authentication, product catalog, shopping cart, and a payment gateway integration. Built with a responsive MERN stack architecture.]</p>
-                <a href="[Link to your project's GitHub repo]" target="_blank" class="project-link" data-translate="view_on_github">
-                    View on GitHub <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
-             <div class="card item">
-                <h4 data-translate="project2_title">[Project Two: Task Management App]</h4>
-                <p class="item-sub">.NET Core, HTML, CSS</p>
-                <p data-translate="project2_desc">[A sleek and intuitive task management application with features like drag-and-drop, local storage persistence, and task categorization. Focused on clean UI/UX and performance.]</p>
-                <a href="[Link to your project's GitHub repo]" target="_blank" class="project-link" data-translate="view_on_github">
-                    View on GitHub <i class="fas fa-external-link-alt"></i>
-                </a>
+            <div class="container">
+                <h2 class="section-center">Featured Projects</h2>
+                <div class="project-grid" id="project-grid-container">
+                    <!-- Projects will be generated by JavaScript -->
+                </div>
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section id="education">
-            <h3 class="section-title" data-translate="education_title">Education</h3>
-            <div class="card item">
-                <h4 data-translate="edu_degree">[High School Diploma (Expected)]</h4>
-                <p class="item-sub" data-translate="edu_university">[Your High School Name] | [Start Year] - [Expected Graduation Year, e.g., 2024]</p>
-                <p data-translate="edu_desc">[As a final-year student, I am focused on achieving a high score in the upcoming YKS exam to secure a place in a top-tier computer engineering program. My academic focus has been on science and mathematics, providing a strong foundation for my technical pursuits.]</p>
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container section-center">
+                 <h2>What Others Say</h2>
+                 <div id="testimonials-container">
+                    <!-- Testimonials will be generated by JavaScript -->
+                 </div>
             </div>
         </section>
 
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container section-center">
+                <h2>Get In Touch</h2>
+                <p id="contact-text"></p>
+                <a href="#" id="contact-email-btn" class="btn"></a>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <p data-translate="footer_text">© 2024 [Your Name]. All Rights Reserved.</p>
+    <footer>
+        <div class="container">
+            <p id="footer-text"></p>
+        </div>
     </footer>
 
+    <!-- Modal Structure (Initially Hidden) -->
+    <div id="case-study-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close-btn" class="modal-close">×</button>
+            <h3 id="modal-title"></h3>
+            <p id="modal-details"></p>
+            <div class="project-links">
+                <a id="modal-primary-link" href="#" target="_blank"></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- =================================================== -->
+    <!-- ============== EDIT YOUR DATA HERE ================ -->
+    <!-- =================================================== -->
     <script>
-        // --- START CUSTOMIZING HERE ---
-        // Add your translations for different languages here.
-        // The keys should match the 'data-translate' attributes in your HTML.
-        const translations = {
-            'en': {
-                name: "Sarp Atasever",
-                job_title: "Aspiring Computer Engineer & Web Developer",
-                download_cv: "Download CV",
-                about_title: "About Me",
-                about_text: "I am a dedicated and ambitious individual with a deep passion for technology and software development. I recently took the YKS exam, and my goal is to pursue a degree in Computer Engineering. While pursuing my education, I have independently developed strong skills in web design, full-stack development, and various programming languages. I am a proactive learner, highly motivated, and eager to apply my practical experience to a challenging role. I am seeking opportunities where I can contribute to real-world projects and begin my professional journey.",
-                skills_title: "Skills",
-                skills_frontend: "Frontend",
-                skills_backend: "Backend",
-                skills_other: "Other Tools & Technologies",
-                projects_title: "Projects",
-                project1_title: "Modern Web CV Application",
-                project1_desc: "This project, which I prepared to introduce myself effectively while maintaining simplicity, provided me with experience in practical and rapid design.",
-                project2_title: "Artado Search Engine",
-                project2_desc: "This application, where I gained experience related to search engines, was a project where we tackled challenges related to teamwork.",
-                view_on_github: "View on GitHub",
-                education_title: "Education",
-                edu_degree: "High School Diploma",
-                edu_university: "Kemer Anadolu Lisesi | 2021 - 2025",
-                edu_desc: "I focused on achieving a high score in the upcoming YKS exam to secure a place in a good computer engineering program. My academic focus has been on science and mathematics, providing a strong foundation for my technical aspirations.",
-                footer_text: `© ${new Date().getFullYear()} Sarp Atasever. All Rights Reserved.`
+    const portfolioData = {
+        personalInfo: {
+            name: "Sarp Atasever",
+            // The CV link in the nav bar
+            cvUrl: "/portfolio/cv.html" 
+        },
+        hero: {
+            subtitle: "Sarp Atasever // Software Engineer Candidate",
+            // Add or remove roles for the typewriter effect
+            roles: [
+                "Low-Level Game Developer",
+                "Software Engineer",
+                "Problem Solver",
+                "Game Programmer"
+            ],
+            tagline: "I specialize in development which requires creating robust structures and clear maintainability."
+        },
+        // The navigation links at the top
+        navigation: [
+            { text: "About", href: "#about" },
+            { text: "Projects", href: "#projects" },
+            { text: "Contact", href: "#contact" },
+            // { text: "CV", href: "#", isCV: true } // Special link for CV
+        ],
+        socialLinks: [
+            { name: "GitHub", url: "https://github.com/AntiCoronavirus01", title: "GitHub" },
+            { name: "LinkedIn", url: "https://tr.linkedin.com/in/sarp-atasever-a55208162", title: "LinkedIn" },
+
+        ],
+        about: {
+            // Use \n for new paragraphs
+            description: "Hello! I'm Sarp, a Software Engineer who enjoys building reliable, efficient, and well structured systems.\nI have a strong interest in how software works under the hood from performance optimization and memory efficiency to clean architectural design. Whether working close to the metal or contributing to higher-level systems, my focus is on writing maintainable, scalable code that supports real-world performance and stability.\nMy Core abilities is currently not matching a very specialized area right now but i'm confident with myself to specialize in any section of programming/software engineering"
+        },
+        projects: [
+            // To add a new project, copy and paste one of these objects
+            {
+                image: "/portfolio/ss.jpeg",
+                altText: "Web Crawling",
+                title: 'Project: Artado Search Engine',
+                description: "A Dotnet Core based open source search engine that not just trusts their own crawling algorithms and combines other search engines capabilties",
+                tags: ["DotNet", "Web Crawling", "Community Management", "Performance"],
+                // primaryLink is for GitHub, Marketplace, etc.
+                primaryLink: { url: "https://github.com/Artado-Project", text: "GitHub" },
+                // caseStudy is optional. If you don't want a "View Case Study" button, set showCaseStudy to false.
+                caseStudy: {
+                    show: true,
+                    title: "Case Study: Artado Search Engine",
+                    details: "The primary goal of this project is firstly making a good project that also benefits ourselfs and the second benefit is connections that we get by reaching the great people that we cannot meet in normal enviroments"
+                }
             },
-            'tr': {
-                name: "Sarp Atasever",
-                job_title: "Geleceğin Bilgisayar Mühendisi & Web Geliştirici",
-                download_cv: "CV'yi İndir",
-                about_title: "Hakkımda",
-                about_text: "Teknolojiye ve yazılım geliştirmeye derin bir tutku duyan, kendini işine adamış ve hırslı birisiyim. Yakın zamanda YKS sınavına girdim ve hedefim Bilgisayar Mühendisliği bölümünde eğitim almak. Eğitimime devam ederken, kendi çabalarımla web tasarımı, full-stack geliştirme ve çeşitli programlama dillerinde güçlü beceriler edindim. Proaktif bir öğreniciyim, yüksek motivasyona sahibim ve pratik deneyimlerimi zorlu bir role uygulamaya hazırım. Gerçek dünya projelerine katkıda bulunabileceğim ve profesyonel yolculuğuma başlayabileceğim fırsatlar arıyorum.",
-                skills_title: "Yetenekler",
-                skills_frontend: "Ön Yüz (Frontend)",
-                skills_backend: "Arka Yüz (Backend)",
-                skills_other: "Diğer Araçlar ve Teknolojiler",
-                projects_title: "Projeler",
-                project1_title: "Modern web Özgeçmiş uygulaması",
-                project1_desc: "Kendimi güzel bir şekilde tanıtıp aynı zamanda sadeliği koruyabilecek bir tasarım yapmada hazırladığım bu proje bana pratik ve hızlı tasarım konusunda tecrübe kazandırdı.",
-                project2_title: "Artado Arama Motoru",
-                project2_desc: "Arama motoru ile alakalı tecrübe edindiğim bu uygulamada ekip çalışması ile alakalı zorluklarla mücadele ettiğimiz bir proje oldu",
-                view_on_github: "GitHub'da Görüntüle",
-                education_title: "Eğitim",
-                edu_degree: "Lise Diploması",
-                edu_university: "Kemer Anadolu Lisesi | 2021 - 2025",
-                edu_desc: "İyi bir bilgisayar mühendisliği programına yerleşmek için yaklaşan YKS sınavında yüksek bir puan elde etmeye odaklandım. Akademik odağım, teknik hedeflerim için güçlü bir temel sağlayan fen ve matematik üzerine olmuştur.",
-                footer_text: `© ${new Date().getFullYear()} Sarp Atasever. Tüm Hakları Saklıdır.`
+            {
+                image: "/portfolio/ssportfolio.png",
+                altText: "Portfolio",
+                title: 'Project: Portfolio',
+                description: "A Vanilla JS based portfolio that is designed to be simple, clean, and easy to navigate. It showcases my skills and projects effectively.",
+                tags: ["Html","CSS","JS","Web Design"],
+                // primaryLink is for GitHub, Marketplace, etc.
+                primaryLink: { url: "https://github.com/AntiCoronavirus01/portfolio", text: "GitHub" },
+                // caseStudy is optional. If you don't want a "View Case Study" button, set showCaseStudy to false.
+                caseStudy: {
+                    show: true,
+                    title: "Case Study: Basic Web Portfolio",
+                    details: "The primary goal of this project is to create a simple yet expressive portfolio that showcases my skills and projects. It is designed to be easy to navigate and visually appealing, while also being lightweight and fast easy to host."
+                }
+            },
+            
+        ],
+        testimonials: [
+            // To add a new testimonial, copy and paste one of these objects
+            {
+                quote: "Sarp's ability to dive deep into our engine and optimize critical systems was a game-changer for our project. His code is not just fast, it's clean and maintainable. A true low-level wizard.",
+                author: "Maybe You",
+                title: "Lead Engine Programmer, AAA Studio"
             }
-        };
-        // --- STOP CUSTOMIZING HERE ---
+        ],
+        contact: {
+            text: "I'm currently available for freelance work and open to full-time opportunities. If you have a challenging problem that requires a deep understanding about problem and , let's talk.",
+            email: "ataseversarp01@gmail.com"
+        },
+        footer: {
+            text: "Thank you for reading to the end"
+        }
+    };
+    </script>
+    
+    <!-- =================================================== -->
+    <!-- === SCRIPT TO POPULATE AND MANAGE THE SITE ======== -->
+    <!-- =================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- DATA POPULATION ---
+            
+            // Personal Info
+            document.title = `${portfolioData.personalInfo.name} - Portfolio`;
+            document.getElementById('nav-logo').textContent = portfolioData.personalInfo.name;
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const langSwitcher = document.getElementById('lang-switcher');
-            const pdfDownloadBtn = document.getElementById('pdf-download-btn');
-            let currentLang = 'en'; // Default to English
+            // Navigation
+            const navLinksContainer = document.getElementById('nav-links');
+            portfolioData.navigation.forEach(link => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.textContent = link.text;
+                a.href = link.href;
+                li.appendChild(a);
+                navLinksContainer.appendChild(li);
+            });
+            // Add CV link separately
+            const cvLi = document.createElement('li');
+            const cvA = document.createElement('a');
+            cvA.textContent = "CV";
+            cvA.href = portfolioData.personalInfo.cvUrl;
+            cvLi.appendChild(cvA);
+            navLinksContainer.appendChild(cvLi);
 
-            // Function to update the UI with the selected language
-            const setLanguage = (lang) => {
-                // Update the HTML lang attribute
-                document.documentElement.lang = lang;
 
-                // Translate all elements with data-translate attribute
-                const elements = document.querySelectorAll('[data-translate]');
-                elements.forEach(el => {
-                    const key = el.getAttribute('data-translate');
-                    if (translations[lang] && translations[lang][key] !== undefined) {
-                        el.innerHTML = translations[lang][key];
-                    }
-                });
+            // Hero Section
+            document.getElementById('hero-subtitle').textContent = portfolioData.hero.subtitle;
+            document.getElementById('hero-tagline').textContent = portfolioData.hero.tagline;
 
-                // Update language switcher button text
-                langSwitcher.textContent = lang === 'en' ? 'TR' : 'EN';
-
-                // Part of the code
-
-                // Use an absolute path (starts with /) to be safe.
-                const pdfPath = `/portfolio/cv_${lang.toLowerCase()}.pdf`; 
-
-                const yourNameForFile = translations[lang].name.replace(/\s+/g, '-');
-                pdfDownloadBtn.href = pdfPath; // Use the correct path
-                pdfDownloadBtn.setAttribute('download', `CV-${yourNameForFile}-${lang.toUpperCase()}.pdf`);
-            };
-
-            // Event listener for the language switcher button
-            langSwitcher.addEventListener('click', () => {
-                currentLang = currentLang === 'en' ? 'tr' : 'en';
-                setLanguage(currentLang);
+            // Social Links
+            const socialLinksContainer = document.getElementById('social-links-container');
+            portfolioData.socialLinks.forEach(link => {
+                const a = document.createElement('a');
+                a.href = link.url;
+                a.title = link.title;
+                a.textContent = link.name;
+                a.target = "_blank"; // Open in new tab
+                socialLinksContainer.appendChild(a);
             });
 
-            // Detect browser's preferred language on page load
-            const browserLang = navigator.language || navigator.userLanguage;
-            let initialLang = 'en'; // Default to English
+            // About Section
+            const aboutContent = document.getElementById('about-content');
+            portfolioData.about.description.split('\n').forEach(paragraphText => {
+                if (paragraphText.trim() !== '') {
+                    const p = document.createElement('p');
+                    p.textContent = paragraphText;
+                    aboutContent.appendChild(p);
+                }
+            });
 
-            // Check if the browser language is supported (e.g., starts with 'tr')
-            if (browserLang && browserLang.startsWith('tr')) {
-                initialLang = 'tr';
+            // Projects Section
+            const projectGrid = document.getElementById('project-grid-container');
+            portfolioData.projects.forEach((project, index) => {
+                const tagsHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                const caseStudyButtonHTML = project.caseStudy.show
+                    ? `<a href="#" class="case-study-btn" data-project-index="${index}">View Case Study</a>`
+                    : '';
+
+                const cardHTML = `
+                    <div class="project-card">
+                        <img src="${project.image}" alt="${project.altText}">
+                        <div class="project-info">
+                            <h3>${project.title}</h3>
+                            <p>${project.description}</p>
+                            <div class="project-tags">${tagsHTML}</div>
+                            <div class="project-links">
+                                <a href="${project.primaryLink.url}" target="_blank">${project.primaryLink.text}</a>
+                                ${caseStudyButtonHTML}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                projectGrid.innerHTML += cardHTML;
+            });
+
+            // Testimonials Section
+            const testimonialsContainer = document.getElementById('testimonials-container');
+            portfolioData.testimonials.forEach(testimonial => {
+                const testimonialHTML = `
+                    <div class="testimonial-card">
+                        <blockquote>"${testimonial.quote}"</blockquote>
+                        <cite class="testimonial-author">
+                            ${testimonial.author}
+                            <span>${testimonial.title}</span>
+                        </cite>
+                    </div>
+                `;
+                testimonialsContainer.innerHTML += testimonialHTML;
+            });
+
+            // Contact Section
+            document.getElementById('contact-text').textContent = portfolioData.contact.text;
+            const emailBtn = document.getElementById('contact-email-btn');
+            emailBtn.href = `mailto:${portfolioData.contact.email}`;
+            emailBtn.textContent = portfolioData.contact.email;
+
+            // Footer
+            document.getElementById('footer-text').textContent = portfolioData.footer.text;
+
+
+            // --- INTERACTIVITY SCRIPTS ---
+
+            // Typewriter Effect
+            const typewriterElement = document.getElementById('typewriter');
+            const roles = portfolioData.hero.roles;
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentRole = roles[roleIndex];
+                if (isDeleting) {
+                    typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentRole.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000); // Pause at end of word
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(type, 500); // Pause before starting new word
+                } else {
+                    const typingSpeed = isDeleting ? 100 : 150;
+                    setTimeout(type, typingSpeed);
+                }
             }
-            // You can add more 'else if' for other languages if you support them
+            type();
 
-            currentLang = initialLang;
-            setLanguage(currentLang); // Set the initial language
+
+            // Modal Logic
+            const modal = document.getElementById('case-study-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDetails = document.getElementById('modal-details');
+            const modalPrimaryLink = document.getElementById('modal-primary-link');
+            const closeModalBtn = document.getElementById('modal-close-btn');
+
+            projectGrid.addEventListener('click', function(event) {
+                if (event.target.classList.contains('case-study-btn')) {
+                    event.preventDefault();
+                    
+                    const projectIndex = event.target.getAttribute('data-project-index');
+                    const project = portfolioData.projects[projectIndex];
+                    
+                    if (project && project.caseStudy) {
+                        modalTitle.textContent = project.caseStudy.title;
+                        modalDetails.textContent = project.caseStudy.details;
+                        modalPrimaryLink.href = project.primaryLink.url;
+                        modalPrimaryLink.textContent = `View on ${project.primaryLink.text}`;
+                        
+                        modal.style.display = 'flex';
+                    }
+                }
+            });
+
+            const closeModal = () => {
+                modal.style.display = 'none';
+            };
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
         });
-
     </script>
+
 </body>
 </html>
