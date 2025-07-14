@@ -1,298 +1,774 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarp Atasever - CV</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Sarp Atasever - Özgeçmiş</title>
     <style>
-        /* A4 Page Setup and General Styling */
-        @page {
-            size: A4;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: 400;
-            font-size: 11pt;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* The main CV container that mimics an A4 sheet */
         .cv-container {
-            width: 21cm;
-            min-height: 29.7cm;
-            margin: 30px auto;
-            background: #ffffff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            padding: 2cm;
-            box-sizing: border-box;
-            position: relative; /* <-- ADDED: To be a positioning context for the image */
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* --- NEW: Profile Picture Style --- */
-        .profile-picture {
-            position: absolute;
-            top: 2cm; /* Align with top padding */
-            right: 2cm; /* Align with right padding */
-            width: 110px;
-            height: 110px;
-            border-radius: 50%; /* Makes the image circular */
-            object-fit: cover; /* Prevents image distortion */
-            border: 4px solid #f0f0f0;
-            background-color: #f0f0f0; /* BG for placeholder */
-        }
-
-
-        /* --- HEADER & CONTACT --- */
-        .header {
-            text-align: center;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-            /* Added padding-right to avoid text overlapping with the image on very small screens, though not essential for A4 */
-            padding-right: 130px; 
-        }
-
-        .header h1 {
-            font-size: 28pt;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin: 0 0 10px 0;
-            letter-spacing: 1px;
-        }
-
-        .contact-info {
+        /* Page 1 - Front Side */
+        .page-1 {
+            min-height: 297mm;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            position: relative; /* Added for QR code positioning */
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .header-content {
+            display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px 25px;
-            font-size: 10pt;
-            color: #555;
-        }
-        
-        .contact-info a {
-            color: #005f73; /* A modern, professional color */
-            text-decoration: none;
-            transition: color 0.3s;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-info a:hover {
-            color: #00343f;
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        /* --- SECTIONS --- */
+        .header-info h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-info .title {
+            font-size: 18px;
+            color: #a0aec0;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #e2e8f0;
+        }
+
+        .contact-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
         .section {
-            margin-bottom: 25px;
+            margin-bottom: 32px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
         }
 
         .section-title {
-            font-size: 14pt;
-            font-weight: 700;
-            color: #005f73;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #005f73;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-        }
-        
-        .section p {
-            margin: 0 0 10px 0;
-        }
-
-        /* --- EXPERIENCE & EDUCATION --- */
-        .entry {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a202c;
             margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
         }
 
-        .entry-header {
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Profile Section */
+        .profile-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a5568;
+            text-align: justify;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 24px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
+            align-items: flex-start;
+            margin-bottom: 8px;
         }
 
-        .entry-title {
-            font-size: 12pt;
+        .job-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .job-date {
+            font-size: 13px;
+            color: #667eea;
             font-weight: 500;
-            color: #1a1a1a;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
         }
-        
-        .entry-company {
+
+        .job-description {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Education Section */
+        .education-item {
+            padding: 20px;
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            border-radius: 8px;
+            border-left: 4px solid #38a169;
+        }
+
+        .school-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+
+        .graduation-year {
+            font-size: 13px;
+            color: #38a169;
             font-weight: 500;
+            background: rgba(56, 161, 105, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
         }
 
-        .entry-date {
-            font-size: 10pt;
-            font-style: italic;
-            color: #666;
-            flex-shrink: 0;
-            margin-left: 15px;
-        }
-
-        .entry-details {
-            margin: 0;
-            padding-left: 18px;
-            list-style-type: disc;
-            color: #444;
-        }
-        
-        .entry-details li {
-            margin-bottom: 5px;
-        }
-
-        /* --- SKILLS SECTION --- */
+        /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-category h3 {
-            font-size: 11pt;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
 
-        .skill-category ul {
-            margin: 0;
-            padding-left: 18px;
-            list-style-position: outside;
-        }
-        
-        .skill-category li {
-            margin-bottom: 5px;
-        }
-        
-        .skill-category li span {
-            font-style: italic;
-            color: #666;
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            transition: transform 0.2s ease;
         }
 
-        /* Print-specific styles */
+        .skill-item:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Page 2 - Back Side */
+        .page-2 {
+            min-height: 297mm;
+            padding: 40px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            display: none;
+            position: relative; /* Added for QR code positioning */
+        }
+
+        /* Show page 2 when printing */
         @media print {
-            body {
-                background-color: #fff;
-                font-size: 10pt; /* Slightly smaller for better print fit */
+            .page-2 {
+                display: block !important;
             }
-            .cv-container {
+        }
+
+        .back-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .back-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .back-subtitle {
+            font-size: 16px;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        /* Additional sections for page 2 */
+        .additional-section {
+            margin-bottom: 32px;
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .language-item {
+            text-align: center;
+            padding: 16px;
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border-radius: 8px;
+            border: 1px solid #feb2b2;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 4px;
+        }
+
+        .language-level {
+            font-size: 13px;
+            color: #e53e3e;
+            font-weight: 500;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .interest-item {
+            background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);
+            color: #553c9a;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #d6bcfa;
+        }
+        
+        /* --- NEW: QR Code Styles --- */
+        .qr-code {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 40px;
+            right: 40px;
+            z-index: 10;
+        }
+
+
+        /* Print Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            html, body {
+                width: 210mm;
+                height: 297mm;
                 margin: 0;
-                padding: 1.5cm;
+                padding: 0;
+                background: white;
+                font-size: 10pt;
+                line-height: 1.4;
+            }
+
+            .cv-container {
+                max-width: 100%;
+                width: 100%;
                 box-shadow: none;
-                border: none;
+                border-radius: 0;
+                margin: 0;
+                padding: 0;
             }
-            .profile-picture {
-                top: 1.5cm;
-                right: 1.5cm;
-                border-color: #eee;
+
+            .page-1 {
+                width: 210mm;
+                height: 297mm;
+                page-break-after: always;
+                page-break-inside: avoid;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                position: relative; /* Ensure positioning context for print */
             }
+
+            .page-2 {
+                width: 210mm;
+                height: 297mm;
+                page-break-before: always;
+                page-break-inside: avoid;
+                margin: 0;
+                padding: 15mm;
+                display: block;
+                box-sizing: border-box;
+                position: relative; /* Ensure positioning context for print */
+            }
+
             .header {
-                padding-right: 0;
+                padding: 20mm 15mm;
+                background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%) !important;
+                color: white !important;
+                margin: 0;
             }
-            .contact-info a {
-                color: #333;
-                text-decoration: none;
+
+            .header-content {
+                gap: 20px;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .header-info h1 {
+                font-size: 24pt;
+                margin-bottom: 4px;
+            }
+
+            .header-info .title {
+                font-size: 14pt;
+                margin-bottom: 15px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                font-size: 10pt;
+            }
+
+            .main-content {
+                flex: 1;
+                padding: 15mm;
+                display: block;
+                margin: 0;
+            }
+
+            .left-column {
+                margin-bottom: 20px;
+            }
+
+            .right-column {
+                margin-bottom: 0;
+            }
+
+            .section {
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+
+            .section-title {
+                font-size: 14pt;
+                margin-bottom: 10px;
+            }
+
+            .profile-text {
+                font-size: 10pt;
+                line-height: 1.5;
+            }
+
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .skill-item {
+                padding: 8px 12px;
+                font-size: 9pt;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+                color: white !important;
+                box-shadow: none;
+            }
+
+            .experience-item, .education-item {
+                margin-bottom: 15px;
+                padding: 15px;
+                page-break-inside: avoid;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .job-title {
+                font-size: 12pt;
+            }
+
+            .job-date {
+                font-size: 9pt;
+            }
+
+            .job-description {
+                font-size: 10pt;
+                line-height: 1.4;
+            }
+
+            .school-name {
+                font-size: 12pt;
+            }
+
+            .graduation-year {
+                font-size: 9pt;
+            }
+
+            /* Page 2 specific styles */
+            .back-header {
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+            }
+
+            .back-title {
+                font-size: 20pt;
+            }
+
+            .back-subtitle {
+                font-size: 12pt;
+            }
+
+            .additional-section {
+                margin-bottom: 20px;
+                padding: 15px;
+                page-break-inside: avoid;
+            }
+
+            .languages-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+
+            .language-item {
+                padding: 10px;
+                font-size: 9pt;
+            }
+
+            .interests-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+
+            .interest-item {
+                padding: 8px;
+                font-size: 9pt;
+            }
+
+            .language-name, .language-level {
+                font-size: 9pt;
+            }
+
+            /* --- NEW: QR Code Print Styles --- */
+            .qr-code {
+                width: 1.5cm;
+                height: 1.5cm;
+                bottom: 15mm;
+                right: 15mm;
+            }
+
+            /* Hide interactive elements */
+            .page-toggle {
+                display: none !important;
+            }
+
+            /* Ensure backgrounds print */
+            .header, .skill-item, .experience-item, .education-item, .additional-section, .language-item, .interest-item {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+
+        /* Screen view toggle */
+        .page-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .page-toggle:hover {
+            background: #5a67d8;
+        }
+
+        @media print {
+            .page-toggle {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
+    <button class="page-toggle" onclick="togglePage()">Sayfa 2'yi Göster</button>
 
-    <main class="cv-container">
+    <div class="cv-container">
+        <!-- PAGE 1 - FRONT SIDE -->
+        <div class="page-1" id="page1">
+            <header class="header">
+                <div class="header-content">
+                    <img src="IMG_20250714_111953~2.jpg" alt="Sarp Atasever" class="profile-photo">
+                    <div class="header-info">
+                        <h1>Sarp Atasever</h1>
+                        <div class="title">Kariyer Başlangıcı</div>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                ataseversarp01@gmail.com
+                            </div>
+                            <div class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                +90 551 942 19 43
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
-        <!-- ultimate sigma here -->
-        <img src="/portfolio/IMG_20250706_080528.jpg" alt="Profile Picture" class="profile-picture">
+            <div class="main-content">
+                <div class="left-column">
+                    <section class="section">
+                        <h2 class="section-title">Profil</h2>
+                        <p class="profile-text">
+                            Dinamik ve öğrenmeye açık genç profesyonel. Çeşitli sektörlerde edindiğim deneyimler sayesinde müşteri ilişkileri, ekip çalışması ve adaptasyon konularında güçlü yetenekler geliştirdim. Yabancı dil bilgim ve hızlı öğrenme kapasitem ile farklı iş ortamlarına kolayca uyum sağlayabiliyorum.
+                        </p>
+                    </section>
 
-        <header class="header">
-            <h1>SARP ATASEVER</h1>
-            <div class="contact-info">
-                <span>+90 551 942 19 43</span>
-                <span>•</span>
-                <a href="mailto:ataseversarp01@gmail.com">ataseversarp01@gmail.com</a>
-                <span>•</span>
-                <span>Antalya, Turkey</span>
+                    <section class="section">
+                        <h2 class="section-title">Yetenekler</h2>
+                        <div class="skills-grid">
+                            <div class="skill-item">Ekip Çalışması</div>
+                            <div class="skill-item">Yabancı Dil</div>
+                            <div class="skill-item">Hızlı Öğrenme</div>
+                            <div class="skill-item">Problem Çözme</div>
+                            <div class="skill-item">Müşteri İlişkileri</div>
+                            <div class="skill-item">Adaptasyon</div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="right-column">
+                    <section class="section">
+                        <h2 class="section-title">İş Deneyimi</h2>
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div class="job-title">Turizm Tekne Turları</div>
+                                <div class="job-date">2024 Yaz</div>
+                            </div>
+                            <p class="job-description">
+                                Tekne turlarında görev alarak müşteri memnuniyetini sağladım. Turist rehberliği, servis hizmetleri ve genel operasyonel işlerde aktif rol aldım. Farklı kültürlerden insanlarla etkileşim kurarak iletişim becerilerimi geliştirdim.
+                            </p>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div class="job-title">Fırın Çalışanı</div>
+                                <div class="job-date">2023 Yaz</div>
+                            </div>
+                            <p class="job-description">
+                                Fırın işletmesinde üretim süreçlerinde görev aldım. Müşteri hizmetleri, satış desteği ve işletmenin günlük operasyonlarında sorumluluk üstlendim. Hızlı tempolu çalışma ortamında verimlilik ve kalite standartlarını koruma konusunda deneyim kazandım.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Eğitim</h2>
+                        <div class="education-item">
+                            <div class="school-name">Kemer Anadolu Lisesi</div>
+                            <div class="graduation-year">Mezuniyet: 2025</div>
+                        </div>
+                    </section>
+                </div>
             </div>
-        </header>
+            <!-- NEW: QR Code for Page 1 -->
+            <img src="qr.png" alt="QR Code" class="qr-code">
+        </div>
+    </div>
 
-        <section class="section">
-            <h2 class="section-title">Profile</h2>
-            <p>
-                A highly motivated and adaptable recent high school graduate with a strong aptitude for analytical thinking and problem-solving, developed through a Math-Science curriculum and self-study in programming. Fluent in Turkish and English with an intermediate command of Japanese, demonstrating excellent communication skills and cultural awareness. Eager to apply a strong work ethic, technical skills, and a capacity for rapid learning to an entry-level role in a dynamic environment.
-            </p>
-        </section>
+    <!-- PAGE 2 - BACK SIDE (Separate container for printing) -->
+    <div class="cv-container">
+        <div class="page-2" id="page2">
+            <div class="back-header">
+                <h1 class="back-title">Sarp Atasever</h1>
+                <p class="back-subtitle">Ek Bilgiler</p>
+            </div>
 
-        <section class="section">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>Turkish <span>(Native)</span></li>
-                        <li>English <span>(Advanced)</span></li>
-                        <li>Japanese <span>(Intermediate)</span></li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Professional Abilities</h3>
-                    <ul>
-                        <li>Analytical & Critical Thinking</li>
-                        <li>Community Engagement</li>
-                        <li>Problem-Solving</li>
-                        <li>Fast Learner & Adaptable</li>
-                        <li>Attention to Detail</li>
-                    </ul>
-                </div>
-                 <div class="skill-category">
-                    <h3>Technical Foundation</h3>
-                    <ul>
-                        <li>Web Development <span>(HTML, CSS, JS)</span></li>
-                        <li>Backend <span>(C#/.NET, Node.js)</span></li>
-                        <li>Version Control <span>(Git & GitHub)</span></li>
-                        <li>Microsoft Office Suite</li>
-                    </ul>
+            <div class="additional-section">
+                <h2 class="section-title">Dil Becerileri</h2>
+                <div class="languages-grid">
+                    <div class="language-item">
+                        <div class="language-name">Türkçe</div>
+                        <div class="language-level">Ana Dil</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">İngilizce</div>
+                        <div class="language-level">İleri Seviye</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Japonca</div>
+                        <div class="language-level">Başlangıç</div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="section">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="entry">
-                <div class="entry-header">
-                    <div class="entry-title">Programmer • <span class="entry-company">Artado Search Engine</span></div>
-                    <div class="entry-date">2023 – 2024</div>
+            <div class="additional-section">
+                <h2 class="section-title">İlgi Alanları</h2>
+                <div class="interests-grid">
+                    <div class="interest-item">Yüzme</div>
+                    <div class="interest-item">Seyahat</div>
+                    <div class="interest-item">Teknoloji</div>
+                    <div class="interest-item">Müzik</div>
+                    <div class="interest-item">Programlama</div>
+                    <div class="interest-item">Okuma</div>
+                    <div class="interest-item">Donanım</div>
+                    <div class="interest-item">Doğa</div>
                 </div>
-                <ul class="entry-details">
-                    <li>Contributed to the development and maintenance of a web crawling engine, assisting with backend logic and data handling.</li>
-                    <li>Managed and engaged with the user community across digital channels, including Discord, to provide support and gather valuable feedback.</li>
-                    <li>Collaborated with the team to identify, troubleshoot, and resolve technical issues, improving platform performance and stability.</li>
-                </ul>
             </div>
-        </section>
 
-        <section class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="entry">
-                <div class="entry-header">
-                    <div class="entry-title">High School Graduate, Math-Science Track</div>
-                    <div class="entry-date">Graduated 2025</div>
+            <div class="additional-section">
+                <h2 class="section-title">Kişisel Özellikler</h2>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    <div>
+                        <h3 style="color: #1a202c; margin-bottom: 12px; font-size: 16px;">Güçlü Yanlarım</h3>
+                        <ul style="color: #4a5568; font-size: 14px; line-height: 1.6;">
+                            <li>Hızlı adaptasyon yeteneği</li>
+                            <li>Güçlü iletişim becerileri</li>
+                            <li>Sorumluluk sahibi</li>
+                            <li>Çözüm odaklı yaklaşım</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: #1a202c; margin-bottom: 12px; font-size: 16px;">Çalışma Tercihleri</h3>
+                        <ul style="color: #4a5568; font-size: 14px; line-height: 1.6;">
+                            <li>Ekip çalışması</li>
+                            <li>Dinamik ortam</li>
+                            <li>Sürekli öğrenme</li>
+                            <li>Müşteri etkileşimi</li>
+                        </ul>
+                    </div>
                 </div>
-                <p style="margin:0; font-weight:500; color:#555;">Kemer Anatolian High School, Kemer, Antalya</p>
             </div>
-        </section>
+            <!-- NEW: QR Code for Page 2 -->
+            <img src="qr.png" alt="QR Code" class="qr-code">
+        </div>
+    </div>
 
-    </main>
-
+    <script>
+        function togglePage() {
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            const button = document.querySelector('.page-toggle');
+            
+            if (page2.style.display === 'none' || page2.style.display === '') {
+                page1.style.display = 'none';
+                page2.style.display = 'block';
+                button.textContent = 'Sayfa 1\'i Göster';
+            } else {
+                page1.style.display = 'block';
+                page2.style.display = 'none';
+                button.textContent = 'Sayfa 2\'yi Göster';
+            }
+        }
+    </script>
 </body>
-                </html>
+</html>
