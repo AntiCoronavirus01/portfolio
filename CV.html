@@ -588,15 +588,148 @@
             background: #5a67d8;
         }
 
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 140px;
+            z-index: 1000;
+            background: #764ba2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .language-toggle:hover {
+            background: #553c9a;
+        }
+
         @media print {
-            .page-toggle {
+            .page-toggle, .language-toggle {
                 display: none;
+            }
+        }
+
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .cv-container {
+                margin: 0;
+                border-radius: 8px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .header-info h1 {
+                font-size: 28px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .main-content {
+                padding: 20px;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experience-item, .education-item {
+                padding: 15px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interests-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-toggle, .language-toggle {
+                position: static;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .qr-code {
+                width: 80px;
+                height: 80px;
+                top: 20px;
+                right: 20px;
+            }
+
+            /* Adjust font sizes for better readability on mobile */
+            .profile-text {
+                font-size: 14px;
+            }
+
+            .job-title {
+                font-size: 15px;
+            }
+
+            .job-description {
+                font-size: 13px;
+            }
+
+            .skill-item {
+                font-size: 13px;
+            }
+        }
+
+        /* Small mobile devices */
+        @media screen and (max-width: 480px) {
+            .header-info h1 {
+                font-size: 24px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <button class="page-toggle" onclick="togglePage()">Sayfa 2'yi Göster</button>
+    <button class="page-toggle" onclick="togglePage()" id="pageToggleBtn">Sayfa 2'yi Göster</button>
+    <button class="language-toggle" onclick="toggleLanguage()" id="langToggleBtn">English</button>
 
     <div class="cv-container">
         <!-- PAGE 1 - FRONT SIDE -->
@@ -606,7 +739,7 @@
                     <img src="IMG_20250714_111953~2.jpg" alt="Sarp Atasever" class="profile-photo">
                     <div class="header-info">
                         <h1>Sarp Atasever</h1>
-                        <div class="title">Kariyer Başlangıcı</div>
+                        <div class="title" data-tr="Kariyer Başlangıcı" data-en="Career Start">Kariyer Başlangıcı</div>
                         <div class="contact-grid">
                             <div class="contact-item">
                                 <svg class="contact-icon" viewBox="0 0 24 24">
@@ -628,44 +761,47 @@
             <div class="main-content">
                 <div class="left-column">
                     <section class="section">
-                        <h2 class="section-title">Profil</h2>
-                        <p class="profile-text">
+                        <h2 class="section-title" data-tr="Profil" data-en="Profile">Profil</h2>
+                        <p class="profile-text" data-tr="Dinamik ve öğrenmeye açık genç profesyonel. Çeşitli sektörlerde edindiğim deneyimler sayesinde müşteri ilişkileri, ekip çalışması ve adaptasyon konularında güçlü yetenekler geliştirdim. Yabancı dil bilgim ve hızlı öğrenme kapasitem ile farklı iş ortamlarına kolayca uyum sağlayabiliyorum." 
+                           data-en="Dynamic and learning-oriented young professional. Through experiences in various sectors, I have developed strong skills in customer relations, teamwork, and adaptation. With my foreign language knowledge and quick learning capacity, I can easily adapt to different work environments.">
                             Dinamik ve öğrenmeye açık genç profesyonel. Çeşitli sektörlerde edindiğim deneyimler sayesinde müşteri ilişkileri, ekip çalışması ve adaptasyon konularında güçlü yetenekler geliştirdim. Yabancı dil bilgim ve hızlı öğrenme kapasitem ile farklı iş ortamlarına kolayca uyum sağlayabiliyorum.
                         </p>
                     </section>
 
                     <section class="section">
-                        <h2 class="section-title">Yetenekler</h2>
+                        <h2 class="section-title" data-tr="Yetenekler" data-en="Skills">Yetenekler</h2>
                         <div class="skills-grid">
-                            <div class="skill-item">Ekip Çalışması</div>
-                            <div class="skill-item">Yabancı Dil</div>
-                            <div class="skill-item">Hızlı Öğrenme</div>
-                            <div class="skill-item">Problem Çözme</div>
-                            <div class="skill-item">Müşteri İlişkileri</div>
-                            <div class="skill-item">Adaptasyon</div>
+                            <div class="skill-item" data-tr="Ekip Çalışması" data-en="Teamwork">Ekip Çalışması</div>
+                            <div class="skill-item" data-tr="Yabancı Dil" data-en="Foreign Languages">Yabancı Dil</div>
+                            <div class="skill-item" data-tr="Hızlı Öğrenme" data-en="Quick Learning">Hızlı Öğrenme</div>
+                            <div class="skill-item" data-tr="Problem Çözme" data-en="Problem Solving">Problem Çözme</div>
+                            <div class="skill-item" data-tr="Müşteri İlişkileri" data-en="Customer Relations">Müşteri İlişkileri</div>
+                            <div class="skill-item" data-tr="Adaptasyon" data-en="Adaptation">Adaptasyon</div>
                         </div>
                     </section>
                 </div>
 
                 <div class="right-column">
                     <section class="section">
-                        <h2 class="section-title">İş Deneyimi</h2>
+                        <h2 class="section-title" data-tr="İş Deneyimi" data-en="Work Experience">İş Deneyimi</h2>
                         <div class="experience-item">
                             <div class="job-header">
-                                <div class="job-title">Turizm Tekne Turları</div>
-                                <div class="job-date">2024 Yaz</div>
+                                <div class="job-title" data-tr="Turizm Tekne Turları" data-en="Tourism Boat Tours">Turizm Tekne Turları</div>
+                                <div class="job-date" data-tr="2024 Yaz" data-en="Summer 2024">2024 Yaz</div>
                             </div>
-                            <p class="job-description">
+                            <p class="job-description" data-tr="Tekne turlarında görev alarak müşteri memnuniyetini sağladım. Turist rehberliği, servis hizmetleri ve genel operasyonel işlerde aktif rol aldım. Farklı kültürlerden insanlarla etkileşim kurarak iletişim becerilerimi geliştirdim." 
+                               data-en="Ensured customer satisfaction by working in boat tours. Took an active role in tourist guiding, service duties, and general operational tasks. Improved communication skills by interacting with people from different cultures.">
                                 Tekne turlarında görev alarak müşteri memnuniyetini sağladım. Turist rehberliği, servis hizmetleri ve genel operasyonel işlerde aktif rol aldım. Farklı kültürlerden insanlarla etkileşim kurarak iletişim becerilerimi geliştirdim.
                             </p>
                         </div>
                         
                         <div class="experience-item">
                             <div class="job-header">
-                                <div class="job-title">Fırın Çalışanı</div>
-                                <div class="job-date">2023 Yaz</div>
+                                <div class="job-title" data-tr="Fırın Çalışanı" data-en="Bakery Staff">Fırın Çalışanı</div>
+                                <div class="job-date" data-tr="2023 Yaz" data-en="Summer 2023">2023 Yaz</div>
                             </div>
-                            <p class="job-description">
+                            <p class="job-description" data-tr="Fırın işletmesinde üretim süreçlerinde görev aldım. Müşteri hizmetleri, satış desteği ve işletmenin günlük operasyonlarında sorumluluk üstlendim. Hızlı tempolu çalışma ortamında verimlilik ve kalite standartlarını koruma konusunda deneyim kazandım." 
+                               data-en="Worked in production processes at a bakery business. Took responsibility in customer service, sales support, and daily operations of the business. Gained experience in maintaining efficiency and quality standards in a fast-paced work environment.">
                                 Fırın işletmesinde üretim süreçlerinde görev aldım. Müşteri hizmetleri, satış desteği ve işletmenin günlük operasyonlarında sorumluluk üstlendim. Hızlı tempolu çalışma ortamında verimlilik ve kalite standartlarını koruma konusunda deneyim kazandım.
                             </p>
                         </div>
@@ -754,19 +890,36 @@
     </div>
 
     <script>
+        let isEnglish = false;
+
+        function toggleLanguage() {
+            isEnglish = !isEnglish;
+            const langBtn = document.getElementById('langToggleBtn');
+            const pageBtn = document.getElementById('pageToggleBtn');
+            
+            // Update button text
+            langBtn.textContent = isEnglish ? 'Türkçe' : 'English';
+            pageBtn.textContent = isEnglish ? 'Show Page 2' : 'Sayfa 2\'yi Göster';
+
+            // Update all elements with data-tr and data-en attributes
+            document.querySelectorAll('[data-tr][data-en]').forEach(element => {
+                element.textContent = isEnglish ? element.getAttribute('data-en') : element.getAttribute('data-tr');
+            });
+        }
+
         function togglePage() {
             const page1 = document.getElementById('page1');
             const page2 = document.getElementById('page2');
-            const button = document.querySelector('.page-toggle');
+            const button = document.getElementById('pageToggleBtn');
             
             if (page2.style.display === 'none' || page2.style.display === '') {
                 page1.style.display = 'none';
                 page2.style.display = 'block';
-                button.textContent = 'Sayfa 1\'i Göster';
+                button.textContent = isEnglish ? 'Show Page 1' : 'Sayfa 1\'i Göster';
             } else {
                 page1.style.display = 'block';
                 page2.style.display = 'none';
-                button.textContent = 'Sayfa 2\'yi Göster';
+                button.textContent = isEnglish ? 'Show Page 2' : 'Sayfa 2\'yi Göster';
             }
         }
     </script>
